@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 
 namespace Helper
 {
@@ -37,4 +40,62 @@ namespace Helper
 	}
 	// Var fibbonacci = new Helper.Fibonnacci()
 	// protected - inherited only, public - everything, internal - project, private - class
+
+	public class Primes
+	{
+		public Primes()
+		{
+			list = new List<long>();
+			N = 1;
+		}
+
+		public List<long> list;
+		private long N { get; set; }
+
+		public bool IsPrime(long number)
+		{
+			long halfway = number / 2;
+			for (int i = 3; i < halfway; i+=2)
+			{
+				if (number % i == 0)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		public void Generate(long amount)
+		{
+			for (long i = N; i < N + amount; i+=2)
+			{
+				if (IsPrime(i))
+				{
+					list.Add(i);
+				}
+			}
+			N += amount;
+		}
+
+		public List<long> GetPrimeFactors(long input)
+		{
+			long defecit = input - N;
+			if (defecit > 0)
+			{
+				Generate(defecit);
+			}
+
+			List<long> factors = new List<long>();
+			for (int i = 0; i < list.Count; i++)
+			{
+				if (input % list[i] == 0)
+				{
+					factors.Add(list[i]);
+				}
+			}
+			return factors;
+		}
+
+
+	}
 }

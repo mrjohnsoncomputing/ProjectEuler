@@ -7,6 +7,8 @@ namespace ProjectEuler
 	{
 		internal static void Solve()
 		{
+			Timer timer = new Timer();
+			timer.Begin();
 			var fibbonacci = new Fibbonacci(1, 2);
 			while (fibbonacci.Num2 < 4000000)
 			{
@@ -14,7 +16,7 @@ namespace ProjectEuler
 			}
 			var evens = fibbonacci.Sequence.Where(x => x % 2 == 0);
 			int answer = evens.Sum();
-			Formatting.PrintResult(answer, 2);
+			Formatting.PrintResult(answer, 2, timer.Stop());
 		}
 	}
 }

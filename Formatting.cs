@@ -6,9 +6,9 @@ namespace ProjectEuler
 {
 	internal static class Formatting
 	{
-		public static void PrintResult(object result, int problem_number)
+		public static void PrintResult(object result, int problem_number, string timeTaken)
 		{
-			Console.WriteLine("The answer to problem " + problem_number + " is " + result);
+			Console.WriteLine("The answer to problem " + problem_number + " is " + result + " || Time taken: " + timeTaken);
 		}
 
 		public static void PrintList(List<long> list)

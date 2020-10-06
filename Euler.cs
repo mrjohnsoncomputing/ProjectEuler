@@ -11,6 +11,7 @@ namespace ProjectEuler
 			Problem2.Solve();
 			Problem3.Solve();
 			Problem4.Solve();
+			Problem5.Solve();
 		}
 	}
 }

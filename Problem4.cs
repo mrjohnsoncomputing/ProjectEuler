@@ -1,6 +1,4 @@
 ﻿using Helper;
-using System;
-using System.Globalization;
 
 namespace ProjectEuler
 {

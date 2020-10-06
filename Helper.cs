@@ -38,4 +38,12 @@ namespace Helper
 	}
 	// Var fibbonacci = new Helper.Fibonnacci()
 	// protected - inherited only, public - everything, internal - project, private - class
+
+	public class Primes
+	{
+		public Primes()
+		{ 
+		
+		}
+	}
 }

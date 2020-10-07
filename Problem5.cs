@@ -26,7 +26,7 @@ namespace ProjectEuler
 
         private static bool DividesByEach(int number, int seed) 
         {
-            for (int i = 1; i <= seed; i++)
+            for (int i = 2; i < seed; i++)
             {
                 if (number % i != 0)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,11 +8,10 @@ namespace ProjectEuler
 	internal class Euler
 	{
 		internal static void Main(string[] args) {
-			Problem1.Solve();
-			Problem2.Solve();
-			Problem3.Solve();
-			Problem4.Solve();
-			Problem5.Solve();
+			Timer timer = new Timer();
+			timer.Begin();
+            var answer = Problem5.Solve();
+			Formatting.PrintResult(answer, 5, timer.Stop());
 		}
 	}
 }

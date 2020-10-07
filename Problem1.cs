@@ -6,7 +6,7 @@ namespace ProjectEuler
 {
 	internal class Problem1
 	{
-		internal static void Solve()
+		internal static int Solve()
 		{
 			Timer timer = new Timer();
 			timer.Begin();
@@ -16,7 +16,7 @@ namespace ProjectEuler
 					result += i;
 				}
 			}
-			Formatting.PrintResult(result, 1, timer.Stop());
+			return result; 
 		}
 	}
 }

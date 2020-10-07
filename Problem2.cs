@@ -5,7 +5,7 @@ namespace ProjectEuler
 {
 	internal class Problem2
 	{
-		internal static void Solve()
+		internal static int Solve()
 		{
 			Timer timer = new Timer();
 			timer.Begin();
@@ -15,8 +15,8 @@ namespace ProjectEuler
 				fibbonacci.Next();
 			}
 			var evens = fibbonacci.Sequence.Where(x => x % 2 == 0);
-			int answer = evens.Sum();
-			Formatting.PrintResult(answer, 2, timer.Stop());
+			return evens.Sum();
+
 		}
 	}
 }

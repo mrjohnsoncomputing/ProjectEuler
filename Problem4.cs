@@ -4,15 +4,7 @@ namespace ProjectEuler
 {
     class Problem4
     {
-		internal static void Solve()
-		{
-			Timer timer = new Timer();
-			timer.Begin();
-			int answer = GetAnswer();
-			Formatting.PrintResult(answer, 4, timer.Stop());
-		}
-
-		internal static int GetAnswer()
+		internal static int Solve()
 		{
 			int start = 999;
 			for (int i = start * start; i >= 0; i--)

@@ -74,8 +74,8 @@ namespace Helper
 
 		public Primes()
 		{
-			list = new List<long>();
-			N = 1;
+			list = new List<long>() {2};
+			N = 3;
 		}
 
 		public List<long> list;
@@ -96,18 +96,7 @@ namespace Helper
 			}
 		}
 
-		public bool IsPrime(long number)
-		{
-			var sqrt = Math.Sqrt(number);
-			for (int i = 2; i <= sqrt; i++)
-			{
-				if (number % i == 0)
-				{
-					return false;
-				}
-			}
-			return true;
-		}
+		
 
 		private void GenerateBatchOfPrimes(int batchSize, long startPosition)
 		{
@@ -136,9 +125,6 @@ namespace Helper
 			{
 				batchSize = 1;
 			}
-			
-			
-
 			for (long i = N; i < amountToGenerate; i+= batchSize)
 			{
 				GenerateBatchOfPrimes(batchSize, i);
@@ -153,6 +139,19 @@ namespace Helper
 			{
 				list.Add(i);
 			}
+		}
+
+		public bool IsPrime(long number)
+		{
+			var sqrt = Math.Sqrt(number);
+			for (int i = 2; i <= sqrt; i++)
+			{
+				if (number % i == 0)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		public List<long> GetPrimeFactors(long input)

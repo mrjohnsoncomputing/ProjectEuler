@@ -10,8 +10,8 @@ namespace ProjectEuler
 		internal static void Main(string[] args) {
 			Timer timer = new Timer();
 			timer.Begin();
-            var answer = Problem9.Solve();
-			Formatting.PrintResult(answer, 9, timer.Stop());
+            var answer = Problem10.Solve();
+			Formatting.PrintResult(answer, 10, timer.Stop());
 		}
 	}
 }

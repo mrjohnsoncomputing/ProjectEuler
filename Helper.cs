@@ -75,12 +75,7 @@ namespace Helper
 		public Primes()
 		{
 			list = new List<long>();
-			//list = FileIO.ReadLongs("primes.txt");
-			N = 3; //list.LastOrDefault();
-			//if (N == null)
-			//{
-			//	N = 3;
-			//}
+			N = 1;
 		}
 
 		public List<long> list;
@@ -126,9 +121,23 @@ namespace Helper
 			//Console.WriteLine("Start: " + startPosition + " || Generated " + batchSize + " prime numbers in " + timer.Stop());
 		}
 
-		public void GeneratePrimes(double amountToGenerate)
+		public void GenerateNPrimes(int amountToGenerate)
 		{
-			const int batchSize = 100000;
+			while (list.Count < amountToGenerate)
+			{
+				CheckNForPrimes(1000000);
+			}
+		}
+
+		public void CheckNForPrimes(double amountToGenerate)
+		{
+			int batchSize = 100000;
+			if (amountToGenerate < batchSize)
+			{
+				batchSize = 1;
+			}
+			
+			
 
 			for (long i = N; i < amountToGenerate; i+= batchSize)
 			{
@@ -148,8 +157,8 @@ namespace Helper
 
 		public List<long> GetPrimeFactors(long input)
 		{
-			
-			GeneratePrimes(Math.Sqrt(input));
+
+			CheckNForPrimes(Math.Sqrt(input));
 			
 
 			List<long> factors = new List<long>();

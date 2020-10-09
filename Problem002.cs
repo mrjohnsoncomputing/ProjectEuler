@@ -3,7 +3,7 @@ using Helper;
 
 namespace ProjectEuler
 {
-	internal class Problem2
+	internal class Problem002
 	{
 		internal static int Solve()
 		{

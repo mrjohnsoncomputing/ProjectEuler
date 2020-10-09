@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ProjectEuler
 {
-    internal class Problem3
+    internal class Problem003
 	{
 		internal static string Solve()
 		{

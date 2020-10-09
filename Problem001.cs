@@ -4,7 +4,7 @@ using Microsoft.VisualBasic.CompilerServices;
 
 namespace ProjectEuler
 {
-	internal class Problem1
+	internal class Problem001
 	{
 		internal static int Solve()
 		{

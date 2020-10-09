@@ -3,7 +3,7 @@ using System;
 
 namespace ProjectEuler
 {
-    class Problem5
+    class Problem005
     {
         internal static int Solve()
         {

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ProjectEuler
 {
-    class Problem10
+    class Problem010
     {
         private static readonly int seed = 2000000;
         internal static long answer = 0;

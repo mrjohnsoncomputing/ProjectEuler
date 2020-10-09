@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjectEuler
 {
-    class Problem9
+    class Problem009
     {
         private static readonly int seed = 1000;
         internal static int limit = 900;

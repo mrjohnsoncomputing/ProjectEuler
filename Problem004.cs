@@ -2,7 +2,7 @@
 
 namespace ProjectEuler
 {
-    class Problem4
+    class Problem004
     {
 		internal static int Solve()
 		{

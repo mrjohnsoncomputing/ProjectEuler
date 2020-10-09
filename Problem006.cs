@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjectEuler
 {
-    class Problem6
+    class Problem006
     {
         public static int Solve()
         {

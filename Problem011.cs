@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ProjectEuler
 {
@@ -8,17 +10,20 @@ namespace ProjectEuler
 
         public static int Solve()
         {
-            for (int row = 0; row < GRID.GetLength(0) - Seed; row++)
-            {
-                for (int position = 0; position < GRID.GetLength(1) - Seed; position++)
-                {
-                    List<int> results = new List<int>() { ColumnProduct(row, position), RowProduct(row, position), DiagonalProduct(row, position) };
-                    if (results.Max() > Answer)
-                    {
-                        Answer = results.Max();
-                    }
-                }
-            }
+            List<int> products = new List<int>() { GetLargestProduct(0, Seed, RowProduct), GetLargestProduct(Seed, 0, ColumnProduct), GetLargestProduct(Seed, Seed, DiagonalProduct), GetLargestProduct(Seed, 0, ReverseDiagonalProduct) };
+            
+            Answer = products.Max();
+            //for (int row = 0; row < GRID.GetLength(0) - Seed; row++)
+            //{
+            //    for (int position = 0; position < GRID.GetLength(1) - Seed; position++)
+            //    {
+            //        List<int> results = new List<int>() { ColumnProduct(row, position), RowProduct(row, position), DiagonalProduct(row, position) };
+            //        if (results.Max() > Answer)
+            //        {
+            //            Answer = results.Max();
+            //        }
+            //    }
+            //}
 
             return Answer;
         }
@@ -59,6 +64,25 @@ namespace ProjectEuler
             return total;
         }
 
+        public static int GetLargestProduct(int rowoffset, int posoffset, Func<int,int,int>ProductFunction)
+        {
+            int record = 0;
+            for (int row = 0; row < GRID.GetLength(0) - rowoffset; row++)
+            {
+                for (int position = 0; position < GRID.GetLength(1) - posoffset; position++)
+                {
+                    int result = ProductFunction(row, position);
+                    if (result > record)
+                    {
+                        record = result;
+                    }
+                }
+            }
+
+            return record;
+        }
+
+
         public static int RowProduct(int row, int position)
         {
             int total = 1;
@@ -75,6 +99,19 @@ namespace ProjectEuler
             for (int i = 0; i < Seed; i++)
             {
                 total *= GRID[row+i, position+i];
+            }
+            return total;
+        }
+
+        public static int ReverseDiagonalProduct(int row, int position)
+        {
+            int total = 1;
+            if (position >= Seed-1)
+            {
+                for (int i = 0; i < Seed; i++)
+                {
+                    total *= GRID[row + i, position - i];
+                }
             }
             return total;
         }

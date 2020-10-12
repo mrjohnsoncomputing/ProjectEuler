@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace ProjectEuler
 {
@@ -8,9 +9,9 @@ namespace ProjectEuler
     {
         public static int Solve()
         {
-            int seed = 7;
+           
             TriangleNumbers tnums = new TriangleNumbers();
-            for (int i = 0; i < seed; i++)
+            for (int i = 0; i < Seed; i++)
             {
                 tnums.Next();
             }
@@ -20,24 +21,29 @@ namespace ProjectEuler
         }
 
         internal static int Answer = 0;
-        internal static int Seed = 4;
+        internal static int Seed = 10;
     }
 
     class TriangleNumbers
     {
         public TriangleNumbers() 
         {
-            list = new List<int>() { 1 };
+            list = new List<int>();
         }
 
         public List<int> list;
         public int Next()
         {
-            int total = 0;
-            for (int i = 0; i < list.Count; i++)
+            int total = list.Count + 1;
+            try
             {
-                total += list[0];
+                total += list[^1];
             }
+            catch 
+            {
+                total = 1;
+            }
+            
             list.Add(total);
             return total;
         }

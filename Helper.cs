@@ -43,6 +43,23 @@ namespace Helper
 	// Var fibbonacci = new Helper.Fibonnacci()
 	// protected - inherited only, public - everything, internal - project, private - class
 
+	public class DoMath 
+	{
+		public static int GetFactors(int number)
+		{
+			int factors = 2;
+			for (int i = 2; i <= Math.Sqrt(number); i++)
+			{
+				if (number % i == 0)
+				{
+					factors += 2;
+				}
+			}
+			//Console.WriteLine($"The number {number} has {factors}");
+			return factors;
+		}
+	}
+
 	internal class Timer
 	{
 		public Timer()

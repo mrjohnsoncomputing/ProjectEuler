@@ -11,17 +11,19 @@ namespace ProjectEuler
         {
            
             TriangleNumbers tnums = new TriangleNumbers();
-            for (int i = 0; i < Seed; i++)
+            tnums.Next();
+            while (Helper.DoMath.GetFactors(tnums.list[^1]) <= Seed)
+            //for (int i = 0; i < Seed; i++)
             {
                 tnums.Next();
             }
-            Console.WriteLine(tnums.list[^1]);
+            //Console.WriteLine(tnums.list[^1]);
 
-            return Answer;
+            return tnums.list[^1];
         }
 
         internal static int Answer = 0;
-        internal static int Seed = 10;
+        internal static int Seed = 500;
     }
 
     class TriangleNumbers
@@ -46,6 +48,14 @@ namespace ProjectEuler
             
             list.Add(total);
             return total;
+        }
+
+        public void GenerateBatch(int number)
+        {
+            for (int i = 0; i < number; i++)
+            {
+                Next();
+            }
         }
     }
 }

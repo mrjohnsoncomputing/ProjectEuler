@@ -237,6 +237,21 @@ namespace Helper
 			return intlist;
         }
 
+		public static List<string> ReadStrings(string filename)
+		{
+			string path = GetPath(filename);
+			// Open the file to read from.
+			using StreamReader sr = File.OpenText(path);
+			string s = "";
+			List<string> content = new List<string>();
+			
+			while ((s = sr.ReadLine()) != null)
+			{
+				content.Add(s);
+			}
+			return content;
+		}
+
 		private static string GetPath(string filename) 
 		{
 			return Path.Combine(new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.Parent.FullName, @"Data\", filename);

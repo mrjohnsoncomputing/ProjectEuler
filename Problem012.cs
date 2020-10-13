@@ -9,7 +9,7 @@ namespace ProjectEuler
     {
         public static int Solve()
         {
-           
+
             TriangleNumbers tnums = new TriangleNumbers();
             tnums.Next();
             while (Helper.DoMath.GetFactors(tnums.list[^1]) <= Seed)
@@ -28,7 +28,7 @@ namespace ProjectEuler
 
     class TriangleNumbers
     {
-        public TriangleNumbers() 
+        public TriangleNumbers()
         {
             list = new List<int>();
         }
@@ -41,11 +41,11 @@ namespace ProjectEuler
             {
                 total += list[^1];
             }
-            catch 
+            catch
             {
                 total = 1;
             }
-            
+
             list.Add(total);
             return total;
         }

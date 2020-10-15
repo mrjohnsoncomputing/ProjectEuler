@@ -19,8 +19,8 @@ namespace ProjectEuler
 
             for (int i = 0; i < data.Count; i++)
             {
-                char[] number = data[i].ToCharArray();
-                int digit = (int)Char.GetNumericValue(number[0]);
+                List<int> number_list = NumberList.Make(data[i]);
+                int digit = number_list[0];
                 product *= digit;
             }
 
@@ -34,15 +34,35 @@ namespace ProjectEuler
         
     }
 
-    class StringNumber
+    class NumberList
     {
-        public StringNumber()
+        public NumberList()
         {
             list = new List<string>();
         }
 
         internal List<string> list;
 
+        public void AddToNumber(List<int> number)
+        {
+            int n = number.Count
+            for (int i = 0; i < n; i++)
+            {
+                // Start at the nth position in the existing number
+                list[^n];
+            }
+        }
+
+        public static List<int> Make(string number)
+        {
+            char[] _numberlist = number.ToCharArray();
+            List<int> numberList = new List<int>();
+            for (int i = 0; i < _numberlist.Count(); i++)
+            {
+                numberList.Add(_numberlist[i]);
+            }
+            return numberList;
+        }
 
     }
 }

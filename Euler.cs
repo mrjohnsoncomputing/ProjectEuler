@@ -14,10 +14,7 @@ namespace ProjectEuler
 			string className = "Problem" + problemNumber;
 			//IProblem problem = (IProblem)Activator.CreateInstance("ProjectEuler", className, arguments).Unwrap();
 			IProblem problem = new Problem014(problemNumber);
-			Timer timer = new Timer();
-			timer.Begin();
-            problem.Solve();
-			Formatting.PrintResult(problem.Answer, 14, timer.Stop());
+			Runner.Run(problem);
 		}
 	}
 }

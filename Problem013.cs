@@ -45,11 +45,12 @@ namespace ProjectEuler
 
         public void AddToNumber(List<int> number)
         {
-            int n = number.Count
+            int n = number.Count;
             for (int i = 0; i < n; i++)
             {
                 // Start at the nth position in the existing number
-                list[^n];
+                //list[^n];
+                continue;
             }
         }
 

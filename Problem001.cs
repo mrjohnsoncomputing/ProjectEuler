@@ -1,22 +1,33 @@
 ﻿using System;
 using Helper;
 using Microsoft.VisualBasic.CompilerServices;
+using ProjectEuler.Abstractions;
 
 namespace ProjectEuler
 {
-	internal class Problem001
+	public class Problem001 : IProblem
 	{
-		internal static int Solve()
+		public Problem001(string name)
 		{
-			Timer timer = new Timer();
-			timer.Begin();
+			Name = name;
+		}
+		public string Name { get; set; }
+		public string Answer { get; set; }
+		public void Solve()
+		{
 			int result = 0;
 			for (int i = 0; i < 1000; i++) {
 				if (i % 3 == 0 || i % 5 == 0) {
 					result += i;
 				}
-			}
-			return result; 
+			}	
+			Print(result); 
+		}
+
+		public void Print(object answer)
+		{
+			answer = (int)answer;
+			Console.WriteLine($"The answer to question {Name} is {answer}.");
 		}
 	}
 }
